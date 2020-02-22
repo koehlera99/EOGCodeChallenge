@@ -1,0 +1,36 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EOGCodeChallenge.Controls"
+             xmlns:ViewModels="clr-namespace:EOGCodeChallenge.ViewModels" x:Class="EOGCodeChallenge.Controls.Player"
+             mc:Ignorable="d" Loaded="UserControl_Loaded" Height="185" Width="335">
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="playerModelViewSource" d:DesignSource="{d:DesignInstance {x:Type ViewModels:PlayerModel}, CreateList=True}"/>
+    </UserControl.Resources>
+    <Grid>
+        <GroupBox Margin="10" Header="Current Player">
+            <Grid x:Name="grid1" VerticalAlignment="Top" Margin="20,10,0,-1" HorizontalAlignment="Left" DataContext="{StaticResource playerModelViewSource}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Player Number:"/>
+                <TextBox x:Name="playerNumberTextBox" Width="120" VerticalAlignment="Center" Text="{Binding PlayerNumber, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+                <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Name:"/>
+                <TextBox x:Name="nameTextBox" Width="120" VerticalAlignment="Center" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+                <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Chips:"/>
+                <TextBox x:Name="chipsTextBox" Width="120" VerticalAlignment="Center" Text="{Binding Chips, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+                <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Has No Chips:"/>
+                <CheckBox x:Name="hasNoChipsCheckBox" VerticalAlignment="Center" Grid.Row="3" Margin="3" IsChecked="{Binding HasNoChips, Mode=OneWay}" HorizontalAlignment="Left" Grid.Column="2" Content=""/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>

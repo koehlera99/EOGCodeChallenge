@@ -55,6 +55,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controls\Player.xaml.cs">
+      <DependentUpon>Player.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\RandomNames.cs" />
+    <Compile Include="Tools\Roll.cs" />
+    <Compile Include="Controllers\TurnManager.cs" />
+    <Compile Include="ViewModels\DiceModel.cs" />
+    <Compile Include="ViewModels\GameModel.cs" />
+    <Compile Include="ViewModels\PlayerModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Page Include="Controls\Player.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -86,6 +101,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\EOGCodeChallenge.ViewModels.DiceModel.datasource" />
+    <None Include="Properties\DataSources\EOGCodeChallenge.ViewModels.GameModel.datasource" />
+    <None Include="Properties\DataSources\EOGCodeChallenge.ViewModels.PlayerModel.datasource" />
+    <None Include="Properties\DataSources\EOGCodeChallenge.ViewModels.ViewModelBase.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -94,5 +113,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
